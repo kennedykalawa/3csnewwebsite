@@ -3,10 +3,118 @@
  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3csbusiness</title>
+    <title>3CS Business Solutins</title>
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="main.css">
  </head>
  <body>
+     <!--TOP BAR-->
+   <div class="topbar">
+    <div class="topbar-inner container">
+      <a class="topbar-text" href="#contacts">
+        <i class="fa-solid fa-location-dot"></i>
+        <span><small>Address</small><strong>The Real Park, 3rd Floor, Along Bandari Road, South B</strong></span>
+      </a> 
     
+    <div class="topbar-text">
+      <i class="fa-regular fa-clock"></i>
+      <span><small>Opening Time</small><strong>Mon - Sat: 9am - 5pm</strong></span>
+    </div> 
+
+    <a class="topbar-text" href="mailto:info"3csbusiness.co.ke>
+    <i class="fa-regular fa-envelope"></i>
+    <span><small>Get In Touch</small><strong>info@3csbusiness.co.ke</strong></span>
+    </a>
+    </div>
+   </div>  
+
+   <!--NAVIGATION BAR-->
+   <header class="header">
+    <nav class="navbar glass-dark">
+     <a class="logo" href="#top ">
+         <img src="images/logo.jpg" alt="ThreesC's Bussines Solutions Logo">
+     </a>
+     <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+     <label for="nav-toggle" class="nav-toggle-label">
+     <i class="fa-solid fa-bars"></i>
+     </label>
+
+     <ul nav-menu>
+      <li><a href="#top" class="active">HOME</a></li>
+      <li class="dropdown">
+       <a href="#about">ABOUT US <i class="fa-solid fa-chevron-down"></i></a> 
+       <ul class="dropdown-menu">
+         <li><a href="#about">Who We Are</a></li>
+         <li><a href="#about">Qualifications</a></li>
+         <li><a href="#about">CSR</a></li>
+       </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#products">PRODUCTS <i class="fa-solid fa-chevron-down"></i></a>
+        <ul class="dropdown-menu">
+         <li><a href="#products">IT Solutions</a></li>
+         <li><a href="#products">ELV Solutions</a></li>
+         <li><a href="#products">Trading & Distribution</a></li>
+         <li><a href="#products">Software & Web Solutions</a></li>
+        </ul>
+      </li>
+      <li><a href="#patners">PATNERS</a></li>
+      <li class="dropdown">
+        <a href="#promotions">PROMOTIONS <i class="fa-solid fa-chevron-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="#promotions">3CS WIFI CAR DASH CAMERA</a></li>
+          <li><a href="#promotions">CCTY Offer</a></li>
+        </ul>
+      </li>
+      <li><a href="#contacts">CONTACTS</a></li>
+     </ul>
+
+     <div class="nav-contacts">
+      <a href="tel:+254701683322" class="call-btn">
+        <i class="fa-solid fa-phone"></i>
+        <div>
+            <small>Call Us On</small>
+            <span>+254701683322</span>
+        </div>
+      </a>
+      <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>  
+     </div>
+    </nav>
+   </header>
+
+   <main id="top">
+       <!--HERO SECTION-->  
+     <section class="hero">
+      <input type="radio" name="slide" id="slide1" class="visually-hidden-input" checked hidden>
+      <input type="radio" name="slide" id="slide2" class="visually-hidden-input" hidden>
+      <input type="radio" name="slide" id="slide3" class="visually-hidden-input" hidden>
+
+      <div class="slides">
+       <article class="slide" id="panel1">
+        <div class="slide-images">
+          <img src="images/1.jpg" alt="Business Collaboration">            
+        </div>
+        <div class="slide-scrim">        
+        </div>
+        <div class="container hero-container">
+          <div class="glass-dark hero-card">
+           <span class="eyebrow">3CS BUSINESS SOLUTIONS</span>
+           <h1>Collaboration</h1>
+           <p>We have patnered with the Best Brands to provide our Clients Business solutions with a proven record.</p>
+           <a href="#products" class="btn btn-primary">READ MORE</a>
+          </div>  
+        </div>
+       </article>
+      
+       <article class="slide" id="panel2">
+        <div>
+         img  
+        </div>
+       </article>
+      </div>
+        
+     </section>  
+    
+   </main>
  </body>
  </html>

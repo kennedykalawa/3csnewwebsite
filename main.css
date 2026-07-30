@@ -1,0 +1,218 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: "Inter",sans-serif;
+    background-color: #f4f6f8;
+    color: #222221;
+    line-height: 1.6;
+    overflow-x: hidden ;
+    position: relative;
+}
+ 
+h1, h2, h3, h4 {
+    font-family:"Space Grotsek", sans-serif;
+    letter-spacing: 0.01;    
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*FOR GLASSMORPHISM EFFECTS*/ 
+.glass-light{
+    background: rgba(255, 255, 255, 0.56);
+    backdrop-filter: blur(18px) ;
+    -webkit-backdrop-filter: blur(18px);
+    border: 2px solid rgbs(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 9px 32px 0 rgba(0, 0, 0, 0.15) ;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.glass-dark{
+  background: rgba(0, 0, 0, 0.65) ;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius:  15px;
+  box-shadow: 0 9px 32px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.glass-light:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+
+}
+
+/* TOP BAR*/
+.topbar{
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 7px 0;
+    font-size: 13px;
+}
+.topbar-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+
+}
+.topbar-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 9x;
+    color: #ffffff;
+    text-decoration: none;
+}
+.topbar-text i {
+    color: #e30613;
+}
+.topbar-text span {
+    display: flex;
+    flex-direction: row;
+}
+.topbar-text small{
+    display: flex;
+    align-items: center;
+    color: #aaa;
+    font-size: 12px;
+
+}
+.topbar-text strong{
+    font-size: 15px;
+}
+
+    /*HEADER*/
+.header{
+    position: sticky;
+    top: 9px;
+    z-index: 1000;
+    margin-bottom: -55px;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 16px;
+    background: rgba(0, 0, 0, 0.90);
+    border-radius: 11px;
+
+}
+ .logo img{
+     max-height: 31px;
+     display: block;
+
+ }
+.nav-menu{
+    display: flex;
+    list-style: none;
+    gap: 2.5px;
+}
+.nav-menu a{
+    color: #ffffff;
+    text-decoration: none;
+    padding: 6px 10px;
+    display: block;
+    font-weight: 650;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    transition: background 0.3s;
+
+}
+.nav-menu a:hover,
+.nav-menu a:active{
+    background-color: #e30613;
+
+}
+.dropdown{
+    position: relative;
+}
+.dropdown-menu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a1a1a;
+    min-width: 180px;
+    list-style: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 7px;
+    overflow: hidden;
+}
+.dropdown-menu li a{
+    padding: 9px 12px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+    font-weight: 600;
+}
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+.nav-contacts{
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+.call-btn{
+    background-color: #e30613;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 30px;
+    text-decoration: none;
+}
+.call-btn small{
+    display: block;
+    font-size: 10px;
+    line-height: 1;
+}
+.call-btn span{
+    font-weight: 750;
+    font-size: 13px;
+    line-height: 1;
+}
+.search-btn{
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: none;
+    width: 31px;
+    height: 31px;
+    border-radius: 9px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.nav-toggle-label{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-width: 41px;
+    min-height: 41px;
+    border-radius: 9px;
+}
+.nav-toggle-label:hover{
+    background: rgba(255, 255, 255, 0.09);
+}
