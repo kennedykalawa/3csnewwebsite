@@ -303,3 +303,69 @@ img{
     background-color: #e30613;
     transform: translateY(-2px);
 }
+.btn-block{
+    width: 100%;
+    border: none;
+    cursor:pointer;
+    text-align: center;
+}
+/*Radio Navigation Controls*/
+#slide1:checked ~ .slides #panel1,
+#slide2:checked ~ .slides #panel2,
+#slide3:checked ~ .slides #panel3 {
+    display: flex;
+}
+.arrow .arrow{
+    display: none;
+}
+#slide1:checked ~ .arrow .arrow-for-1,
+#slide2:checked ~ .arrow .arrow-for-2,
+#slide3:checked ~ .arrow .arrow-for-3 {
+    display: flex;
+}
+.arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 21px;
+    cursor: pointer;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+}
+.arrow-prev{
+    left: 20px;
+}
+.arrow-next{
+    right: 20px;
+}
+.dots{
+    position: absolute;
+    bottom: 20px;
+    left: 8px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 50;
+}
+.dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+#slide1:checked ~ .dots label[for="slide1"],
+#slide2:checked ~ .dots label[for="slide2"],
+#slide3:checked ~ .dots label[for="slide3"]{
+    background: #e30613;
+    transform: scale(1.2);
+}
