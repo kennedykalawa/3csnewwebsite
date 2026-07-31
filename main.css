@@ -499,3 +499,48 @@ img{
     font-size: 23px;
     margin-top: 5px;
 }
+/* CONTACT FORM*/
+.contact-card{
+    padding: 40px;
+
+}
+.contact-details-list{
+    list-style: none;
+    margin-top: 20px;
+}
+.contact-details-list li{
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+.contact-details-list i {
+    color: #e30613;
+    margin-right: 8px;
+}
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+form-group label{
+    font-size:13px;
+    font-weight: 600;
+    color: #666666;
+}
+.form-group input,
+.form-group textarea{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: rgba(255, 255, 255, 0.8);
+    font-family: "Inter", sans-serif;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #e30613;
+}
