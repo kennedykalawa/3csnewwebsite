@@ -369,3 +369,32 @@ img{
     background: #e30613;
     transform: scale(1.2);
 }
+
+/*FOOTER POSITIONING*/
+.trust-strip-wrapper{
+    margin-top: 40px;
+    position: relative;
+    z-index: 10;
+}
+.trust-strip{
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.trust-label{
+    font-weight: 600;
+    font-size: 14px;
+    color: #ccc;
+
+}
+.trust-logos{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+}
+.trust-logos img{
+    max-height: 28px;
+}
