@@ -1,13 +1,19 @@
- <!DOCTYPE html>
+P        <!DOCTYPE html>
  <html lang="en">
  <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3CS Business Solutins</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="main.css">
  </head>
  <body>
+    <div class="blob blob-red-1" aria-hidden="true"></div>
+    <div class="blob blob-black-1" aria-hidden="true"></div>
+    <div class="blob blob-red-2" aria-hidden="true"></div>
      <!--TOP BAR-->
    <div class="topbar">
     <div class="topbar-inner container">
@@ -21,7 +27,7 @@
       <span><small>Opening Time</small><strong>Mon - Sat: 9am - 5pm</strong></span>
     </div> 
 
-    <a class="topbar-text" href="mailto:info"3csbusiness.co.ke>
+    <a class="topbar-text" href="mailto:info@3csbusiness.co.ke">
     <i class="fa-regular fa-envelope"></i>
     <span><small>Get In Touch</small><strong>info@3csbusiness.co.ke</strong></span>
     </a>
@@ -31,7 +37,7 @@
    <!--NAVIGATION BAR-->
    <header class="header">
     <nav class="navbar glass-dark">
-     <a class="logo" href="#top ">
+     <a class="logo" href="#top">
          <img src="images/logo.jpg" alt="ThreesC's Bussines Solutions Logo">
      </a>
      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
@@ -39,7 +45,7 @@
      <i class="fa-solid fa-bars"></i>
      </label>
 
-     <ul nav-menu>
+     <ul class="nav-menu">
       <li><a href="#top" class="active">HOME</a></li>
       <li class="dropdown">
        <a href="#about">ABOUT US <i class="fa-solid fa-chevron-down"></i></a> 
@@ -111,11 +117,13 @@
          <img src="images/2.jpg" alt="Competitive Services"> 
         </div>
         <div class="slide-scrim"> </div>
-        <div class="glass-dark hero-card">
-         <span class="eyebrow">3CS BUSINESS SOLUTIONS </span>
-         <h1>Competitive</h1>
-         <p>We are dedicated to offer quality products and services with competitive pricing to meet your budget needs.</p>
-         <a href="#products" class="btn btn-primary" >READ MORE</a>
+        <div class="container hero-container">
+         <div class="glass-dark hero-card">
+          <span class="eyebrow">3CS BUSINESS SOLUTIONS </span>
+          <h1>Competitive</h1>
+          <p>We are dedicated to offer quality products and services with competitive pricing to meet your budget needs.</p>
+          <a href="#products" class="btn btn-primary" >READ MORE</a>
+         </div>
         </div>
        </article>
 
@@ -138,11 +146,11 @@
       <div class="arrows">
         <label for="slide3" class="arrow arrow-prev arrow-for-1" aria-label="Previous slide">&#8249;</label>
         <label for="slide1" class="arrow arrow-prev arrow-for-2">&#8249;</label>
-        <label for="slide2" class="arrow arrow-prev" arrow-for-3 aria-label="Previous slide">&#8249;</label>
+        <label for="slide2" class="arrow arrow-prev arrow-for-3" aria-label="Previous slide">&#8249;</label>
 
         <label for="slide2" class="arrow arrow-next arrow-for-1" aria-label="Next slide">&#8250;</label>
         <label for="slide3" class="arrow arrow-next arrow-for-2" aria-label="Next slide" >&#8250;</label>
-        <label for="slide1" class="arrow arrow-next arrow-for-3" aria-label="<Next slide">&#8250;</label>
+        <label for="slide1" class="arrow arrow-next arrow-for-3" aria-label="Next slide">&#8250;</label>
       </div>
 
       <div class="dots">
@@ -155,7 +163,7 @@
      <!--PRODUCTS SECTION---->
      <section class="section products-section" id="products">
        <div class="container">
-        <h2 section-title>OUR PRODUCTS</h2>
+        <h2 class="section-title">OUR PRODUCTS</h2>
         <div class="grid grid3">
             
          <article class="glass-light product-card">
@@ -234,7 +242,7 @@
         <p>Secure Installation</p>
        </div> 
        <div class="glass-dark stat-box">
-        <h2><238></h2>
+        <h2>238</h2>
         <p>Expert Technicians</p>
        </div>
        <div class="glass-dark stat-box">
@@ -258,7 +266,7 @@
          </div>
         </div>
 
-        <div class="why us">
+        <div class="why-us">
          <h2>Why Choose Us</h2>
          <div class="glass-light why-card">
           <div class="why-item">
@@ -322,7 +330,7 @@
      </section>
 
      <!--CONTACTS SECTION WITH A FORM-->
-     <section class="section contact-section id="contacts"">
+     <section class="section contact-section" id="contacts">
        <div class="container">
          <div class="glass-light contact-card grid grid2">
            <div class="contact-info">
@@ -381,7 +389,7 @@
       
       <div class="footer-col">
         <h3>OUR SERVICES</h3>
-        <ul class="footer-link">
+        <ul class="footer-links">
           <li>
             <a href="#products"><i class="fa-solid fa-chevron-right"></i>ELV Solution</a>
           </li>

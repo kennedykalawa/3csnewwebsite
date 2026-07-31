@@ -18,8 +18,8 @@ body{
 }
  
 h1, h2, h3, h4 {
-    font-family:"Space Grotsek", sans-serif;
-    letter-spacing: 0.01;    
+    font-family:"Space Grotesk", sans-serif;
+    letter-spacing: -0.01em;
 }
 
 .container{
@@ -32,6 +32,39 @@ img{
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+/*BACKGROUND BLOBS FOR GLASSMORPHISM EFFECTS*/
+.blob{
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: -1;
+    pointer-events: none;
+}
+.blob-red-1{
+    width: 500px;
+    height: 500px;
+    background: #e30613;
+    opacity: 0.12;
+    top: 400px;
+    left: -150px;
+}
+.blob-black-1{
+    width: 450px;
+    height: 450px;
+    background: #000000;
+    opacity: 0.05;
+    top: 1200px;
+    right: -100px;
+}
+.blob-red-2{
+    width: 480px;
+    height: 480px;
+    background: #ff4b52;
+    opacity: 0.10;
+    top: 2500px;
+    left: 30%;
 }
 
 /*FOR GLASSMORPHISM EFFECTS*/ 
@@ -55,8 +88,8 @@ img{
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .glass-light:hover{
-    transform: translateY(-6px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.15);
 
 }
 
@@ -107,17 +140,17 @@ img{
     position: sticky;
     top: 9px;
     z-index: 1000;
-    margin-bottom: -55px;
+    margin-bottom: -30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 16px;
-    background: rgba(0, 0, 0, 0.90);
-    border-radius: 11px;
-
+    padding: 8px 20px;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 12px;
 }
  .logo img{
      max-height: 31px;
@@ -127,18 +160,18 @@ img{
 .nav-menu{
     display: flex;
     list-style: none;
-    gap: 2.5px;
+    gap: 10px;
 }
 .nav-menu a{
     color: #ffffff;
     text-decoration: none;
-    padding: 6px 10px;
+    padding: 8px 12px;
     display: block;
     font-weight: 650;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 0.5px;
     border-radius: 4px;
-    transition: background 0.3s;
+    transition: background 0.3s, color 0.2s;
 
 }
 .nav-menu a:hover,
@@ -155,16 +188,21 @@ img{
     top: 100%;
     left: 0;
     background-color: #1a1a1a;
-    min-width: 180px;
+    min-width: 200px;
     list-style: none;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
-    border-radius: 7px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    border-radius: 8px;
     overflow: hidden;
 }
 .dropdown-menu li a{
-    padding: 9px 12px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
     font-weight: 600;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+.dropdown-menu li a:hover{
+    background: rgba(255,255,255,0.05);
 }
 .dropdown:hover .dropdown-menu{
     display: block;
@@ -302,7 +340,7 @@ img{
     color: #ffffff;
 }
 .btn-primary:hover{
-    background-color: #e30613;
+    background-color: #b81017;
     transform: translateY(-2px);
 }
 .btn-block{
@@ -318,9 +356,12 @@ img{
     display: flex;
 }
 /* Fixed arrow selectors */
-#slide1:checked ~ .arrow .arrow-for-1,
-#slide2:checked ~ .arrow .arrow-for-2,
-#slide3:checked ~ .arrow .arrow-for-3 {
+.arrows .arrow{
+    display: none;
+}
+#slide1:checked ~ .arrows .arrow-for-1,
+#slide2:checked ~ .arrows .arrow-for-2,
+#slide3:checked ~ .arrows .arrow-for-3 {
     display: flex;
 }
 .arrow{
@@ -375,17 +416,19 @@ img{
     margin-top: 40px;
     position: relative;
     z-index: 10;
+    
 }
 .trust-strip{
     padding: 15px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #aaaaaa;
 }
 .trust-label{
     font-weight: 600;
     font-size: 14px;
-    color: #ccc;
+    background-color: rgba(0, 0, 0, 0.4);
 
 }
 .trust-logos{
@@ -393,7 +436,8 @@ img{
     gap: 30px;
     align-items: center;
     filter: brightness(0) invert(1);
-    opacity: 0.8;
+   opacity: 0.8;
+
 }
 .trust-logos img{
     max-height: 28px;
@@ -405,7 +449,7 @@ img{
 }
 .section-title{
     text-align: center;
-    font-size: 32px;
+    font-size: 36px;
     margin-bottom: 40px;
     position: relative;
 }
@@ -478,7 +522,7 @@ img{
     padding: 30px;
 }
 .stat-box h2{
-    font-size: 40px;
+    font-size: 48px;
     color: #e30613;
 }
 
@@ -498,7 +542,7 @@ img{
 }
 .why-item i{
     color: #e30613;
-    font-size: 23px;
+    font-size: 26px;
     margin-top: 5px;
 }
 /* CONTACT FORM*/
@@ -512,7 +556,7 @@ img{
 }
 .contact-details-list li{
     margin-bottom: 12px;
-    font-size: 14px;
+    font-size: 15px;
 }
 .contact-details-list i {
     color: #e30613;
@@ -521,21 +565,21 @@ img{
 .contact-form{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 12px;
 }
 .form-group{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
 }
-form-group label{
+.form-group label{
     font-size:13px;
     font-weight: 600;
     color: #666666;
 }
 .form-group input,
 .form-group textarea{
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
     border: 1px solid #ddd;
     background: rgba(255, 255, 255, 0.8);
@@ -551,7 +595,7 @@ form-group label{
 .footer{
     background-color: #121212;
     color: #aaaaaa;
-    padding-top: 50px;
+    padding-top: 60px;
     font-size: 14px;
 }
 .footer-logo{
@@ -582,7 +626,7 @@ form-group label{
     padding: 20px 0;
     margin-top: 30px;
 }
-bottom-flex{
+.bottom-flex{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -601,7 +645,7 @@ bottom-flex{
 
 @media (max-width: 768px){
     .grid2, .grid3, .grid4{grid-template-columns: 1fr;}
-    .site-header{
+    .header{
         margin-bottom: 0;
     }
     .nav-toggle-label{
@@ -624,7 +668,7 @@ bottom-flex{
     .nav-toggle:checked ~ .nav-menu{
         display: flex;
     }
-    .nav-right{
+    .nav-contacts{
         display: none;
     }
 
