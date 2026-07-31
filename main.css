@@ -398,3 +398,39 @@ img{
 .trust-logos img{
     max-height: 28px;
 }
+
+/*SECTIONS & GRIDS*/ 
+.section{
+    padding: 60px 0;
+}
+.section-title{
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    position: relative;
+}
+.section-title::after{
+    content: '';
+    width: 50px;
+    height: 3px;
+    background-color: #e30613;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateY(-50%);
+
+}
+.grid{
+    display: grid;
+    gap: 25px;
+
+}
+.grid2{
+    grid-template-columns: repeat(2, 1fr);
+}
+.grid3{
+    grid-template-columns: repeat(3, 1fr);
+}
+.grid4{
+    grid-template-columns: repeat(4, 1fr);
+}
