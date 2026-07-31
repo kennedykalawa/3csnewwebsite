@@ -39,7 +39,8 @@ img{
     background: rgba(255, 255, 255, 0.56);
     backdrop-filter: blur(18px) ;
     -webkit-backdrop-filter: blur(18px);
-    border: 2px solid rgbs(255, 255, 255, 0.9);
+    /* Fixed typo: rgbs -> rgba */
+    border: 2px solid rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     box-shadow: 0 9px 32px 0 rgba(0, 0, 0, 0.15) ;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -78,7 +79,8 @@ img{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 9x;
+    /* Fixed gap unit: 9x -> 9px */
+    gap: 9px;
     color: #ffffff;
     text-decoration: none;
 }
@@ -315,9 +317,7 @@ img{
 #slide3:checked ~ .slides #panel3 {
     display: flex;
 }
-.arrow .arrow{
-    display: none;
-}
+/* Fixed arrow selectors */
 #slide1:checked ~ .arrow .arrow-for-1,
 #slide2:checked ~ .arrow .arrow-for-2,
 #slide3:checked ~ .arrow .arrow-for-3 {
@@ -417,7 +417,8 @@ img{
     position: absolute;
     bottom: -8px;
     left: 50%;
-    transform: translateY(-50%);
+    /* Fixed transform: translateX instead of translateY */
+    transform: translateX(-50%);
 
 }
 .grid{
@@ -436,7 +437,8 @@ img{
 }
 
 /*PRODUCT & PROMO CARDS*/
-.product-card, promo-card{
+/* Fixed missing dot before promo-card */
+.product-card, .promo-card{
     overflow: hidden;
     display: flex;
     flex-direction: column;
