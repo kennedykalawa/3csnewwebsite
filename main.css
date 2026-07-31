@@ -434,3 +434,35 @@ img{
 .grid4{
     grid-template-columns: repeat(4, 1fr);
 }
+
+/*PRODUCT & PROMO CARDS*/
+.product-card, promo-card{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.product-card .img-container,
+.promo-card .img-container {
+   height: 200px;
+   overflow: hidden;
+}
+.product-card .img-container img,
+.promo-card .img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.product-card .card-content,
+.promo-card .card-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+.product-card h3, .promo-card h3{
+    font-size: 17px;
+    margin-bottom: 10px;
+
+}
+.product-card p, .promo-card p{
+    font-size: 14px;
+    color: #666666;
+}
