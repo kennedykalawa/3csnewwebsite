@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | 3CS Business Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- BACKGROUND BLOBS -->
+    <div class="blob blob-red-1" aria-hidden="true"></div>
+    <div class="blob blob-black-1" aria-hidden="true"></div>
+    <div class="blob blob-red-2" aria-hidden="true"></div>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="topbar-inner container">
+            <a class="topbar-text" href="index.html#contacts">
+                <i class="fa-solid fa-location-dot"></i>
+                <span><small>Address</small><strong>The Real Park, 3rd Floor, Along Bandari Road, South B</strong></span>
+            </a> 
+            <div class="topbar-text">
+                <i class="fa-regular fa-clock"></i>
+                <span><small>Opening Time</small><strong>Mon - Sat: 9am - 5pm</strong></span>
+            </div> 
+            <a class="topbar-text" href="mailto:info@3csbusiness.co.ke">
+                <i class="fa-regular fa-envelope"></i>
+                <span><small>Get In Touch</small><strong>info@3csbusiness.co.ke</strong></span>
+            </a>
+        </div>
+    </div>  
+
+    <!-- NAVIGATION BAR -->
+    <header class="header">
+        <nav class="navbar glass-dark">
+            <a class="logo" href="index.html">
+                <img src="images/logo.jpg" alt="3CS Business Solutions Logo">
+            </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="/about.html" class="active">ABOUT US <i class="fa-solid fa-chevron-down"></i></a> 
+                    <ul class="dropdown-menu">
+                        <li><a href="/about.html">Who We Are</a></li>
+                        <li><a href="/about.html">Qualifications</a></li>
+                        <li><a href="/about.html">CSR</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="index.html#products">PRODUCTS <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#products">IT Solutions</a></li>
+                        <li><a href="index.html#products">ELV Solutions</a></li>
+                        <li><a href="index.html#products">Trading & Distribution</a></li>
+                        <li><a href="index.html#products">Software & Web Solutions</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#patners">PARTNERS</a></li>
+                <li class="dropdown">
+                    <a href="index.html#promotions">PROMOTIONS <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#promotions">3CS WIFI CAR DASH CAMERA</a></li>
+                        <li><a href="index.html#promotions">CCTV Offer</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#contacts">CONTACTS</a></li>
+            </ul>
+
+            <div class="nav-contacts">
+                <a href="tel:+254113970273" class="call-btn">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <small>Call Us On</small>
+                        <span>+254 113 970 273</span>
+                    </div>
+                </a>
+                <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>  
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- PAGE HEADER HERO -->
+        <section class="page-header">
+           <div class="container">
+            <span class="eyebrow">DISCOVER OUR COMPANY</span>
+            <h1>About 3CS Business Solutions</h1>
+          </div>
+        </section>
+
+        
+
+        <!-- ABOUT SECTION WITH SWITCHABLE TABS -->
+        <section class="section">
+            <div class="container">
+                
+                <!-- Radio Controls -->
+                <input type="radio" name="about-tab" id="tab-who" class="visually-hidden-input" checked hidden>
+                <input type="radio" name="about-tab" id="tab-qualifications" class="visually-hidden-input" hidden>
+                <input type="radio" name="about-tab" id="tab-csr" class="visually-hidden-input" hidden>
+
+                <!-- Navigation Tabs -->
+                <div class="tab-navigation">
+                    <label for="tab-who" class="glass-light tab-btn">Who We Are</label>
+                    <label for="tab-qualifications" class="glass-light tab-btn">Qualifications & Credentials</label>
+                    <label for="tab-csr" class="glass-light tab-btn">Corporate Social Responsibility</label>
+                </div>
+
+                <!-- Tab Contents Container -->
+                <div class="tab-contents">
+                   
+                  <!-- 1. WHO WE ARE CONTENT -->
+                 <article class="tab-content" id="content-who">
+                  <div class="about-layout">
+        
+                  <!-- Left Column: Primary Content -->
+                   <div class="main-column">
+                     <div class="grid grid2" style="align-items: center;">
+                       <div class="about-info">
+                         <h2>Driving Business Excellence Through Tech Integration</h2>
+                         <p style="margin: 15px 0;">3CS Business Solutions is a premier technology integrator dedicated to delivering cutting-edge corporate ICT infrastructure, extra-low voltage (ELV) safety systems, and custom software environments.</p>
+                            <a href="index.html#contacts" class="btn btn-primary">Work With Us</a>
+                       </div>
+                       <div class="glass-light image-panel">
+                          <img src="images/7.jpg" alt="3CS Business Team Collaboration">
+                       </div>
+                     </div>
+
+                  <!-- Pillars: Mission, Vision, Approach, Strategic Alliances -->
+                    <div class="grid grid2" style="margin-top: 30px;">
+                       <div class="glass-light why-card">
+                         <i class="fa-solid fa-bullseye" style="color: #e30613; font-size: 26px; margin-bottom: 10px;"></i>
+                         <h3>Our Mission</h3>
+                         <p>"The company is dedicated to leveraging emerging technologies to provide the highest level of quality products and services, customer service, and security."</p>
+                       </div>
+
+                    <div class="glass-light why-card">
+                        <i class="fa-solid fa-eye" style="color: #e30613; font-size: 26px; margin-bottom: 10px;"></i>
+                         <h3>Our Vision</h3>
+                         <p>"To instill a culture of continuous improvement in realizing the aspiration of our customers."</p>
+                    </div>
+
+                    <div class="glass-light why-card">
+                       <i class="fa-solid fa-compass" style="color: #e30613; font-size: 26px; margin-bottom: 10px;"></i>
+                       <h3>Our Approach</h3>
+                       <p>Our approach is to first understand the client's needs, their objectives, future plans & projections; then tailor the solution to meet this. We also endeavor to keep the client abreast with development trends within the industry.</p>
+                    </div>
+
+                     <div class="glass-light why-card">
+                        <i class="fa-solid fa-handshake-angle" style="color: #e30613; font-size: 26px; margin-bottom: 10px;"></i>
+                        <h3>Strategic Alliances</h3>
+                        <p>We have alliances with specialized equipment vendors, software engineers, and process engineers, who we have dealt with in the past and established professionalism & credibility. Where appropriate & need be, we avail this resource of expertise & competence to our clients’ benefit.</p>
+                     </div>
+                </div>
+
+                 <!-- What is the meaning of 3CS Business Solutions? -->
+                     <div class="meaning-section">
+                       <h2 style="font-size: 26px; margin-bottom: 5px;">What is the meaning of 3cs Business solutions?</h2>
+                      <p style="color: #666; font-size: 14px;">3c’s is an abbreviation of:</p>
+                
+                     <div class="grid grid3 meaning-grid">
+                     <div class="glass-light meaning-card">
+                        <h3>Competence</h3>
+                        <p>We have well trained and qualified Personnel</p>
+                     </div>
+                     <div class="glass-light meaning-card">
+                        <h3>Competitive</h3>
+                        <p>We offer competitive pricing to meet your budget needs</p>
+                     </div>
+                     <div class="glass-light meaning-card">
+                        <h3>Collaboration</h3>
+                        <p>We have partnered with the Best Brands to provide our Clients Business solutions with a proven record.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+        <!-- Right Column: Side Product Cards -->
+
+        <!-- Right Column: Side Product Cards -->
+        <aside class="side-products-column">
+            <h3 class="side-heading">FEATURED SOLUTIONS</h3>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/4.jpg" alt="IT Solutions">
+                </div>
+                <div class="card-content">
+                    <h3>IT SOLUTIONS</h3>
+                    <p>World class, cost-effective Tech support and Enterprise ICT infrastructure for corporate businesses.</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/cctv.webp" alt="CCTV Surveillance">
+                </div>
+                <div class="card-content">
+                    <h3>CCTV SURVEILLANCE</h3>
+                    <p>24/7 premises security with expert installation, deterrence, and high-definition live monitoring.</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/6.jpg" alt="Software & Web Solutions">
+                </div>
+                <div class="card-content">
+                    <h3>SOFTWARE & WEB</h3>
+                    <p>Custom software systems, web platforms, and automated workflow applications.</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/UPS.webp" alt="Uninterrupted Power Supply">
+                </div>
+                <div class="card-content">
+                    <h3>UNINTERRUPTED POWER SUPPLY</h3>
+                    <p>Protect your critical assets and ensure 100% operational uptime with our premium Uninterruptible Power Supply(UPS) systems. Our UPS solutions offer instantaneous backup power and advanced surge protection, safeguarding your data and hardware from costly power outages and voltage irregularities. Don't wait for the next blackout-invest in guaranteed continuity.</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/smart-home.png" alt="Smart Home">
+                </div>
+                <div class="card-content">
+                    <h3>SMART HOME</h3>
+                    <p>Experience the ultimate blend of luxury and efficiency. Our professional smart home installation services seamlessly integrate lighting, climate, entertainment, and security into one intuitive system. Enjoy personalized automation that saves energy, enhances security, and provides unparalleled convenience, controlled easily from your phone or voice. Embrace the future of living-Contact us for your custom smart home plan today!</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/smart-campus.jpg" alt="Smart Campus">
+                </div>
+                <div class="card-content">
+                    <h3>SMART CAMPUS</h3>
+                    <p>A Smart Campus utilizes IoT and AI to integrate physical infrastructure with digital administration, optimizing energy, enhancing security, and streamlining facility management based on real-time data. This integration dramatically lowers operational costs while providing a superior, connected experience for all users. Begin planning your campus modernization with us now!</p>
+                </div>
+            </article>
+        </aside>
+    </div>
+</article>
+
+                  
+
+                    <!-- 2. QUALIFICATIONS CONTENT -->
+                    <article class="tab-content" id="content-qualifications">
+                        <div class="section-title">
+                            <h2 style="font-size: 28px;">Certifications & Licensing</h2>
+                        </div>
+                        <p style="text-align: center; max-width: 700px; margin: -20px auto 30px; color: #666;">3CS Business Solutions operates in full compliance with Kenyan regulatory standards, holding certified installation and contracting clearances.</p>
+                        
+                        <div class="grid grid3">
+                            <div class="glass-light qual-card">
+                                <i class="fa-solid fa-tower-cell"></i>
+                                <span class="badge-tag">CA KENYA</span>
+                                <h3>Class A Telecommunications Contractor</h3>
+                                <p>Fully licensed by the Communications Authority of Kenya to execute structural telecommunication setups, enterprise fiber networks, and wireless backbones.</p>
+                            </div>
+
+                            <div class="glass-light qual-card">
+                                <i class="fa-solid fa-building-shield"></i>
+                                <span class="badge-tag">NCA 5 REGISTERED</span>
+                                <h3>National Construction Authority</h3>
+                                <p>Accredited contractor for commercial building services, electrical installations, structured cabling runs, and structural ELV deployment.</p>
+                            </div>
+
+                            <div class="glass-light qual-card">
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="badge-tag">OEM CERTIFIED</span>
+                                <h3>Certified Systems Integrator</h3>
+                                <p>Direct authorization and engineering credentials for deploying hardware and network ecosystems from Cisco, Dahua, Hikvision, Dell, and APC.</p>
+                            </div>
+                        </div>
+        <!-- Right Column: Side Product Cards -->
+        <aside class="side-products-column">
+            <h3 class="side-heading">FEATURED SOLUTIONS</h3>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/4.jpg" alt="IT Solutions">
+                </div>
+                <div class="card-content">
+                    <h3>IT SOLUTIONS</h3>
+                    <p>World class, cost-effective Tech support and Enterprise ICT infrastructure for corporate businesses.</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/cctv.webp" alt="CCTV Surveillance">
+                </div>
+                <div class="card-content">
+        <!-- Right Column: Side Product Cards -->
+        <aside class="side-products-column">
+            <h3 class="side-heading">FEATURED SOLUTIONS</h3>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/4.jpg" alt="IT Solutions">
+                </div>
+                <div class="card-content">
+                    <h3>IT SOLUTIONS</h3>
+                    <p>World class, cost-effective Tech support and Enterprise ICT infrastructure for corporate businesses.</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/cctv.webp" alt="CCTV Surveillance">
+                </div>
+                <div class="card-content">
+                    <h3>CCTV SURVEILLANCE</h3>
+                    <p>24/7 premises security with expert installation, deterrence, and high-definition live monitoring.</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/6.jpg" alt="Software & Web Solutions">
+                </div>
+                <div class="card-content">
+                    <h3>SOFTWARE & WEB</h3>
+                    <p>Custom software systems, web platforms, and automated workflow applications.</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/UPS.webp" alt="Uninterrupted Power Supply">
+                </div>
+                <div class="card-content">
+                    <h3>UNINTERRUPTED POWER SUPPLY</h3>
+                    <p>Protect your critical assets and ensure 100% operational uptime with our premium Uninterruptible Power Supply(UPS) systems. Our UPS solutions offer instantaneous backup power and advanced surge protection, safeguarding your data and hardware from costly power outages and voltage irregularities. Don't wait for the next blackout-invest in guaranteed continuity.</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/smart-home.png" alt="Smart Home">
+                </div>
+                <div class="card-content">
+                    <h3>SMART HOME</h3>
+                    <p>Experience the ultimate blend of luxury and efficiency. Our professional smart home installation services seamlessly integrate lighting, climate, entertainment, and security into one intuitive system. Enjoy personalized automation that saves energy, enhances security, and provides unparalleled convenience, controlled easily from your phone or voice. Embrace the future of living-Contact us for your custom smart home plan today!</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/smart-campus.jpg" alt="Smart Campus">
+                </div>
+                <div class="card-content">
+                    <h3>SMART CAMPUS</h3>
+                    <p>A Smart Campus utilizes IoT and AI to integrate physical infrastructure with digital administration, optimizing energy, enhancing security, and streamlining facility management based on real-time data. This integration dramatically lowers operational costs while providing a superior, connected experience for all users. Begin planning your campus modernization with us now!</p>
+                </div>
+            </article>
+        </aside>
+                    <h3>CCTV SURVEILLANCE</h3>
+                    <p>24/7 premises security with expert installation, deterrence, and high-definition live monitoring.</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/6.jpg" alt="Software & Web Solutions">
+                </div>
+                <div class="card-content">
+                    <h3>SOFTWARE & WEB</h3>
+                    <p>Custom software systems, web platforms, and automated workflow applications.</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/UPS.webp" alt="Uninterrupted Power Supply">
+                </div>
+                <div class="card-content">
+                    <h3>UNINTERRUPTED POWER SUPPLY</h3>
+                    <p>Protect your critical assets and ensure 100% operational uptime with our premium Uninterruptible Power Supply(UPS) systems. Our UPS solutions offer instantaneous backup power and advanced surge protection, safeguarding your data and hardware from costly power outages and voltage irregularities. Don't wait for the next blackout-invest in guaranteed continuity.</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/smart-home.png" alt="Smart Home">
+                </div>
+                <div class="card-content">
+                    <h3>SMART HOME</h3>
+                    <p>Experience the ultimate blend of luxury and efficiency. Our professional smart home installation services seamlessly integrate lighting, climate, entertainment, and security into one intuitive system. Enjoy personalized automation that saves energy, enhances security, and provides unparalleled convenience, controlled easily from your phone or voice. Embrace the future of living-Contact us for your custom smart home plan today!</p>
+                </div>
+            </article>
+
+            <article class="glass-light product-card">
+                <div class="img-container">
+                    <img src="images/smart-campus.jpg" alt="Smart Campus">
+                </div>
+                <div class="card-content">
+                    <h3>SMART CAMPUS</h3>
+                    <p>A Smart Campus utilizes IoT and AI to integrate physical infrastructure with digital administration, optimizing energy, enhancing security, and streamlining facility management based on real-time data. This integration dramatically lowers operational costs while providing a superior, connected experience for all users. Begin planning your campus modernization with us now!</p>
+                </div>
+            </article>
+        </aside>
+                    </article>
+
+                    <!-- 3. CSR CONTENT -->
+                    <article class="tab-content" id="content-csr">
+                        <div class="grid grid2" style="align-items: center;">
+                            <div class="glass-light image-panel">
+                                <img src="images/1.jpg" alt="3CS Corporate Social Responsibility">
+                            </div>
+                            <div class="csr-info">
+                                <span class="eyebrow">GIVING BACK</span>
+                                <h2>Corporate Social Responsibility</h2>
+                                <p style="margin: 15px 0;">At 3CS Business Solutions, we believe that technological progress should positively impact local communities. Our CSR initiatives focus on digital literacy bridging, infrastructure support for public institutions, and sustainable tech deployment.</p>
+                                <ul class="contact-details-list">
+                                    <li><i class="fa-solid fa-check"></i><strong>Digital Inclusion:</strong> Sponsoring hardware upgrades and connectivity setups for educational institutions.</li>
+                                    <li><i class="fa-solid fa-check"></i><strong>E-Waste Management:</strong> Safe recycling and disposal practices for decommissioned ICT hardware.</li>
+                                    <li><i class="fa-solid fa-check"></i><strong>Skill Empowerment:</strong> Internship and hands-on technical training mentorship for ICT undergraduates.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container grid grid3">
+            <div class="footer-col">
+                <img src="images/logo.png" alt="3CS Logo White" class="footer-logo">
+                <p>3CS BUSINESS is a dynamic company with a vision to provide excellent services and bring new global technologies at your doorstep.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>OUR SERVICES</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html#products"><i class="fa-solid fa-chevron-right"></i>ELV Solution</a></li>
+                    <li><a href="index.html#products"><i class="fa-solid fa-chevron-right"></i>Trading & Distribution</a></li>
+                    <li><a href="index.html#products"><i class="fa-solid fa-chevron-right"></i>Software & Web Solutions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>CONTACT INFO</h3>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-location-dot"></i> THE REAL PARK, 3RD FLOOR, ALONG BANDARI ROAD, SOUTH B.</li>
+                    <li><i class="fa-solid fa-phone"></i> +254 726 224 276 / 113 970 273</li>
+                    <li><i class="fa-solid fa-envelope"></i> info@3csbusiness.co.ke</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <p>&copy; 2026. 3CS Business Solutions. All Rights Reserved.</p>
+                <div class="socials">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
