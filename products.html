@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Shop | 3CS Business Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        /* Price Range Slider Styles */
+        .price-range{
+            margin: 15px 0;
+        }
+        .price-range label{
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .price-range-inputs{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .price-range-inputs input{
+            width: 80px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .price-slider{
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        /* Specification Styles */
+        .spec-accordion{
+            margin: 15px 0;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .spec-toggle{
+            width: 100%;
+            padding: 12px;
+            background: #f8f9fa;
+            border: none;
+            text-align: left;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .spec-toggle:hover{
+            background: #eee;
+        }
+        .spec-toggle i{
+            transition: transform 0.3s;
+        }
+        .spec-toggle.active i{
+            transform: rotate(180deg);
+        }
+        .spec-panel{
+            padding: 15px;
+            background: white;
+            display: none;
+        }
+        .spec-panel.active{
+            display: block;
+        }
+        .spec-list{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .spec-list li{
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .spec-list li:last-child{
+            border-bottom: none;
+        }
+
+        /* Stock Badge Styles */
+        .stock-badge{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .stock-badge.stock-in{
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .stock-badge.stock-low{
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .stock-badge.stock-out{
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Compare Button */
+        .compare-btn{
+            background: transparent;
+            border: 1px solid #ddd;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.2s;
+        }
+        .compare-btn:hover{
+            background: #f8f9fa;
+            border-color: #bbb;
+        }
+
+        /* Filter Styles Enhancement */
+        .filter-bar{
+            gap: 25px;
+        }
+        .filter-group{
+            flex: 1;
+            min-width: 200px;
+        }
+
+        /* Results Summary and Filter Summary */
+        .results-summary{
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .filter-summary{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .filter-chip{
+            background: #e30613;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        .filter-chip i{
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .filter-chip i:hover{
+            opacity: 0.8;
+        }
+
+        /* Skeleton Loader */
+        .skeleton-loader{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .skeleton-item{
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .skeleton-item .skeleton-img{
+            height: 200px;
+            background: #e0e0e0;
+        }
+        .skeleton-item .skeleton-content{
+            height: 120px;
+            background: #e0e0e0;
+            margin: 15px;
+            border-radius: 4px;
+        }
+        .skeleton-item .skeleton-content .line{
+            height: 12px;
+            background: #e0e0e0;
+            margin-bottom: 8px;
+            border-radius: 4px;
+        }
+        .skeleton-item .skeleton-content .line.short{
+            width: 60%;
+        }
+        @keyframes loading{
+            0%{
+                background-position: 200% 0;
+            }
+            100%{
+                background-position: -200% 0;
+            }
+        }
+
+        /* Product Actions */
+        .product-actions{
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .product-actions .btn{
+            flex: 1;
+            min-width: 120px;
+        }
+        @media (max-width: 480px){
+            .product-actions .btn{
+                flex: 100%;
+            }
+        }
+
+        /* Comparison Table Styles */
+        #compare-table table{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        #compare-table th,
+        #compare-table td{
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        #compare-table th{
+            background: #f8f9fa;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        #compare-table tr:hover{
+            background: #f1f1f1;
+        }
+        #compare-table td{
+            font-size: 14px;
+        }
+        #compare-table td:nth-child(1){
+            font-weight: 600;
+            width: 30%;
+        }
+    </style>
+ </head>
+ <body>
+    <!-- BACKGROUND BLOBS -->
+    <div class="blob blob-red-1" aria-hidden="true"></div>
+    <div class="blob blob-black-1" aria-hidden="true"></div>
+    <div class="blob blob-red-2" aria-hidden="true"></div>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="topbar-inner container">
+            <a class="topbar-text" href="#contacts">
+                <i class="fa-solid fa-location-dot"></i>
+                <span><small>Address</small><strong>The Real Park, 3rd Floor, Along Bandari Road, South B</strong></span>
+            </a>
+
+            <div class="topbar-text">
+                <i class="fa-regular fa-clock"></i>
+                <span><small>Opening Time</small><strong>Mon - Sat: 9am - 5pm</strong></span>
+            </div>
+
+            <a class="topbar-text" href="mailto:info@3csbusiness.co.ke">
+                <i class="fa-regular fa-envelope"></i>
+                <span><small>Get In Touch</small><strong>info@3csbusiness.co.ke</strong></span>
+            </a>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar glass-dark">
+            <a class="logo" href="index.html">
+                <img src="images/logo.jpg" alt="3CS Business Solutions Logo">
+            </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT US <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Who We Are</a></li>
+                        <li><a href="about.html">Qualifications</a></li>
+                        <li><a href="about.html">CSR</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="solutions.html">PRODUCTS <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="solutions.html">IT Solutions</a></li>
+                        <li><a href="solutions.html">ELV Solutions</a></li>
+                        <li><a href="trading.html">Trading & Distribution</a></li>
+                        <li><a href="solutions.html">Software & Web Solutions</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="products.html" class="active">OUR SHOP <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html">CCTV</a></li>
+                        <li><a href="products.html">Switch Routers</a></li>
+                        <li><a href="products.html">TVs/Flat Panels</a></li>
+                        <li><a href="products.html">Audio</a></li>
+                    </ul>
+                </li>
+                <li><a href="partners.html">PARTNERS</a></li>
+                <li class="dropdown">
+                    <a href="promotions.html">PROMOTIONS <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="promotions.html">3CS WIFI CAR DASH CAMERA</a></li>
+                        <li><a href="promotions.html">CCTV Offer</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">CONTACTS</a></li>
+            </ul>
+
+            <div class="nav-contacts">
+                <a href="tel:+254701683322" class="call-btn">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <small>Call Us On</small>
+                        <span>+254 113 970 273</span>
+                    </div>
+                </a>
+                <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- PAGE HEADER -->
+        <section class="page-header">
+            <div class="container">
+                <span class="eyebrow">OUR SHOP</span>
+                <h1>Explore Our Products</h1>
+            </div>
+        </section>
+
+        <!-- SHOP SECTION -->
+        <section class="section" id="products">
+            <div class="container">
+                <h2 class="section-title">OUR SHOP</h2>
+                <p>Browse our products by category, filter and sort to find what you need.</p>
+
+                <!-- FILTER BAR -->
+                <div class="filter-bar glass-light">
+                    <div class="filter-group">
+                        <span class="filter-label">Category:</span>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" class="category-checkbox" value="cctv" checked> CCTV</label>
+                            <label><input type="checkbox" class="category-checkbox" value="switch" checked> Switch Routers</label>
+                            <label><input type="checkbox" class="category-checkbox" value="tv" checked> TVs/Flat Panels</label>
+                            <label><input type="checkbox" class="category-checkbox" value="audio" checked> Audio</label>
+                            <label><input type="checkbox" class="category-checkbox" value="it" checked> IT Solutions</label>
+                            <label><input type="checkbox" class="category-checkbox" value="trading" checked> Trading & Distribution</label>
+                            <label><input type="checkbox" class="category-checkbox" value="software" checked> Software & Web Solutions</label>
+                            <label><input type="checkbox" class="category-checkbox" value="ups" checked> UPS</label>
+                            <label><input type="checkbox" class="category-checkbox" value="smarthome" checked> Smart Home</label>
+                            <label><input type="checkbox" class="category-checkbox" value="smartcampus" checked> Smart Campus</label>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <span class="filter-label">Price Range:</span>
+                        <div class="price-range">
+                            <label for="price-min">Min:</label>
+                            <input type="number" id="price-min" placeholder="0" min="0">
+                            <label for="price-max">Max:</label>
+                            <input type="number" id="price-max" placeholder="500000" min="0">
+                        </div>
+                        <input type="range" id="price-slider" min="0" max="500000" value="500000">
+                        <div class="price-range-inputs">
+                            <span id="price-min-value">0</span>
+                            <span id="price-max-value">500,000</span>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <span class="filter-label">Sort by:</span>
+                        <select class="sort-select">
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="name-asc">Name: A to Z</option>
+                            <option value="name-desc">Name: Z to A</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary filter-reset">Reset Filters</button>
+                </div>
+
+                <!-- Results Summary -->
+                <div id="results-summary" class="results-summary">
+                    <span id="results-count">0</span> products found
+                </div>
+
+                <!-- Filter Summary (Chips) -->
+                <div id="filter-summary" class="filter-summary">
+                    <!-- Chips will be injected here -->
+                </div>
+
+                <!-- PRODUCTS GRID -->
+                <div class="grid grid3 product-grid" id="product-grid">
+                    <!-- Product cards will be injected here by JavaScript -->
+                </div>
+
+                <!-- Compare Section (hidden by default) -->
+                <div id="compare-section" class="compare-section" style="display: none; margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+                    <h3>Product Comparison</h3>
+                    <div id="compare-table"></div>
+                    <button class="btn btn-secondary" id="clear-comparison">Clear Comparison</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container grid grid3">
+            <div class="footer-col">
+                <img src="images/logo.png" alt="3CS Logo White" class="footer-logo">
+                <p>3CS BUSINESS is a dynamic company with a vision to provide excellent services and bring new global technologies at your doorstep.
+                </p>
+                <p>We have been associated with and successfully provided ICT and Software solutions to various sectors of business segments including Corporate Companies, NGOS, Value Added Resellers, Dealers, Manufacturers, Distributors, Hospitality Firms, Government Organizations and Semi-Government Orginazations
+                </p>
+                <a href="#about" class="btn btn-primary">READ MORE</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>OUR SERVICES</h3>
+                <ul class="footer-links">
+                    <li>
+                        <a href="index.html#products"><i class="fa-solid fa-chevron-right"></i>ELV Solution</a>
+                    </li>
+                    <li>
+                        <a href="index.html#products"><i class="fa-solid fa-chevron-right"></i>Trading & Distribution</a>
+                    </li>
+                    <li>
+                        <a href="index.html#products"><i class="fa-solid fa-chevron-right"></i>Software & Web Solutions</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>CONTACT INFO</h3>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i>
+                        THE REAL PARK, 3RD FLOOR, ALONG BANDARI ROAD, SOUTH B.
+                    </li>
+                    <li><i class="fa-solid fa-phone"></i>
+                        +254 726 224 276 / 714 699 292 / 113 970 273
+                    </li>
+                    <li><i class="fa-solid fa-envelope"></i>info@3csbusiness.co.ke
+                    </li>
+                    <li><i class="fa-regular fa-clock"></i>
+                        Mon - Sat: 09.00am to 17.00pm
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TRUSTED BRANDS -->
+        <section class="trust-strip-wrapper container" id="patners">
+            <div class="glass-light trust-strip">
+                <p class="trust-label">Trusted brands we work with:</p>
+                <div class="trust-logos">
+                    <img src="images/hp1.png" alt="HP">
+                    <img src="images/dell1.png" alt="Dell">
+                    <img src="images/qnap1.png" alt="QNAP">
+                    <img src="images/dlink.png" alt="D-link">
+                    <img src="images/cisco1.png" alt="Cisco">
+                </div>
+            </div>
+        </section>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <p>&copy; 2026. 3CS Business Solutions. All Rights Reserved.</p>
+                <div class="socials">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#" aria-label="Twitter"><i class=" fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="site.js"></script>
+    <!-- Shop specific script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Enhanced Product data with specifications and stock info
+            const products = [
+                {id: 1, name: 'Hikvision DS-2CD2043', category: 'cctv', price: 12000, image: 'images/cctv.webp', desc: '4MP IR Fixed Bullet Network Camera',
+                 specs: {
+                     'Resolution': '4MP (2560x1440)',
+                     'Lens': '4mm fixed focal',
+                     'IR Range': '30m',
+                     'Weather Rating': 'IP67',
+                     'POE': 'Supported',
+                     'Warranty': '3 Years'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 2, name: 'Dahua HFW1320S', category: 'cctv', price: 9500, image: 'images/cctv.webp', desc: '3MP IR Bullet Camera',
+                 specs: {
+                     'Resolution': '3MP (2048x1536)',
+                     'Lens': '3.6mm fixed',
+                     'IR Range': '20m',
+                     'Weather Rating': 'IP66',
+                     'POE': 'Supported',
+                     'Warranty': '2 Years'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 3, name: 'Cisco Catalyst 2960X', category: 'switch', price: 45000, image: 'images/4.jpg', desc: '24-port Gigabit Ethernet Switch',
+                 specs: {
+                     'Ports': '24x 1GbE + 4x 1GbE SFP',
+                     'Switching Capacity': '128 Gbps',
+                     'PoE': 'Available (PoE+ model)',
+                     'Layers': 'Layer 2',
+                     'Warranty': 'Limited Lifetime'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 4, name: 'Netgear GS108', category: 'switch', price: 8500, image: 'images/4.jpg', desc: '8-port Gigabit Ethernet Unmanaged Switch',
+                 specs: {
+                     'Ports': '8x 1GbE',
+                     'Switching Capacity': '16 Gbps',
+                     'PoE': 'None',
+                     'Mounting': 'Desktop/Wall-mount',
+                     'Warranty': '3 Years'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 5, name: 'Samsung 55&quot; QLED Q60A', category: 'tv', price: 80000, image: 'images/5.jpg', desc: '55 inch QLED 4K Smart TV',
+                 specs: {
+                     'Screen Size': '55 inch',
+                     'Resolution': '4K UHD (3840x2160)',
+                     'Display Technology': 'QLED',
+                     'Smart TV': 'Tizen OS',
+                     'HDR': 'HDR10+, HLG',
+                     'Warranty': '1 Year'
+                 },
+                 inStock: false,
+                 stockLevel: 'out'
+                },
+                {id: 6, name: 'LG 65&quot; UM7300', category: 'tv', price: 95000, image: 'images/5.jpg', desc: '65 inch 4K UHD Smart TV',
+                 specs: {
+                     'Screen Size': '65 inch',
+                     'Resolution': '4K UHD (3840x2160)',
+                     'Display Technology': 'NanoCell',
+                     'Smart TV': 'webOS',
+                     'HDR': 'HDR10, HLG',
+                     'Warranty': '1 Year'
+                 },
+                 inStock: true,
+                 stockLevel: 'low'
+                },
+                {id: 7, name: 'JBL Professional 305P MkII', category: 'audio', price: 25000, image: 'images/6.jpg', desc: '5-inch Powered Studio Monitor',
+                 specs: {
+                     'Driver Size': '5" Woofer + 1" Tweeter',
+                     'Frequency Response': '43Hz - 24kHz',
+                     'Power Output': '82W Class D',
+                     'Inputs': 'XLR, TRS, RCA',
+                     'Warranty': '2 Years'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 8, name: 'Bose Companion 2 Series III', category: 'audio', price: 12000, image: 'images/6.jpg', desc: 'Multimedia Speaker System',
+                 specs: {
+                     'Speaker Type': '2.0 Desktop',
+                     'Frequency Response': '90Hz - 20kHz',
+                     'Inputs': '3.5mm, RCA',
+                     'Power': 'USB Powered',
+                     'Warranty': '1 Year'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 9, name: 'HP EliteDesk 800 G6', category: 'it', price: 75000, image: 'images/4.jpg', desc: 'Business Desktop PC',
+                 specs: {
+                     'Processor': 'Intel Core i5-10500',
+                     'RAM': '8GB DDR4 (up to 64GB)',
+                     'Storage': '256GB SSD',
+                     'OS': 'Windows 10 Pro',
+                     'Warranty': '3 Years Onsite'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 10, name: 'Dell OptiPlex 7090', category: 'it', price: 68000, image: 'images/4.jpg', desc: 'Small Form Factor Business PC',
+                 specs: {
+                     'Processor': 'Intel Core i5-10500',
+                     'RAM': '8GB DDR4 (up to 64GB)',
+                     'Storage': '256GB SSD',
+                     'OS': 'Windows 10 Pro',
+                     'Form Factor': 'Small Form Factor',
+                     'Warranty': '3 Years Onsite'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 11, name: 'Cisco Meraki MR36', category: 'trading', price: 32000, image: 'images/5.jpg', desc: 'Cloud-Managed AP',
+                 specs: {
+                     'Wi-Fi Standard': '802.11ac Wave 2',
+                     'Radio': '2x2:2 MU-MIMO',
+                     'Antennas': '4x internal',
+                     'Ethernet': '1x Gigabit',
+                     'PoE': '802.3at PoE+',
+                     'Warranty': 'Limited Lifetime'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 12, name: 'Ubiquiti UniFi Switch 24', category: 'trading', price: 28000, image: 'images/5.jpg', desc: 'Managed Gigabit Switch',
+                 specs: {
+                     'Ports': '24x 1GbE + 2x 1GbE SFP',
+                     'Switching Capacity': '52 Gbps',
+                     'PoE': '370W total',
+                     'Management': 'UniFi Controller',
+                     'Warranty': '1 Year'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 13, name: 'Microsoft Office 2021', category: 'software', price: 9000, image: 'images/6.jpg', desc: 'Office Suite License',
+                 specs: {
+                     'Applications': 'Word, Excel, PowerPoint, Outlook',
+                     'License Type': 'Perpetual',
+                     'Users': '1 PC/Mac',
+                     'Compatibility': 'Windows 10/11, macOS',
+                     'Delivery': 'Digital Download'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 14, name: 'Adobe Creative Cloud', category: 'software', price: 15000, image: 'images/6.jpg', desc: 'Annual Subscription',
+                 specs: {
+                     'Applications': '20+ Creative Apps',
+                     'License Type': 'Subscription',
+                     'Term': '12 months',
+                     'Storage': '100GB Cloud',
+                     'Updates': 'Continuous'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 15, name: 'APC Smart-UPS 1500VA', category: 'ups', price: 35000, image: 'images/UPS.webp', desc: 'Line Interactive UPS',
+                 specs: {
+                     'Capacity': '1500VA / 900W',
+                     'Output': '120V',
+                     'Runtime': '15 min at half load',
+                     'AVR': 'Boost/Fault Trim',
+                     'Outlets': '6 NEMA 5-15R',
+                     'Warranty': '3 Years'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 16, name: 'Eaton 5PX 2000VA', category: 'ups', price: 42000, image: 'images/UPS.webp', desc: 'Double Conversion UPS',
+                 specs: {
+                     'Capacity': '2000VA / 1800W',
+                     'Output': '120V',
+                     'Runtime': '11 min at half load',
+                     'Technology': 'Double Conversion',
+                     'Outlets': '8 NEMA 5-15R',
+                     'Warranty': '3 Years'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 17, name: 'Amazon Echo Dot (4th Gen)', category: 'smarthome', price: 5000, image: 'images/smart-home.png', desc: 'Smart Speaker with Alexa',
+                 specs: {
+                     'Assistant': 'Alexa',
+                     'Connectivity': 'Wi-Fi, Bluetooth',
+                     'Audio': '1.6" speaker',
+                     'Microphone': '4-microphone array',
+                     'Smart Home': 'Zigbee Hub',
+                     'Warranty': '90 Days'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 18, name: 'Google Nest Hub Max', category: 'smarthome', price: 18000, image: 'images/smart-home.png', desc: 'Smart Display',
+                 specs: {
+                     'Screen': '10" HD',
+                     'Camera': '6.5MP with face tracking',
+                     'Speakers': '2x 20mm full range',
+                     'Assistant': 'Google Assistant',
+                     'Smart Home': 'Works with thousands',
+                     'Warranty': '1 Year'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+                },
+                {id: 19, name: 'Cisco Kinetic for Cities', category: 'smartcampus', price: 200000, image: 'images/smart-campus.jpg', desc: 'Smart City Platform',
+                 specs: {
+                     'Platform': 'IoT + Data Analytics',
+                     'Deployment': 'Cloud or On-premise',
+                     'Security': 'End-to-end encryption',
+                     'Scalability': 'Unlimited devices',
+                     'Analytics': 'AI-powered insights',
+                     'Warranty': 'Enterprise Support'
+                 },
+                 inStock: false,
+                 stockLevel: 'out'
+                },
+                {id: 20, name: 'Huawei AirEngine Wi-Fi 6', category: 'smartcampus', price: 150000, image: 'images/smart-campus.jpg', desc: 'Enterprise Wi-Fi 6 Access Point',
+                 specs: {
+                     'Wi-Fi Standard': '802.11ax (Wi-Fi 6)',
+                     'Radio': '4x4:4 MU-MIMO',
+                     'Antennas': '8x internal/external',
+                     'Ethernet': '2x 2.5GbE',
+                     'PoE': '802.3bt PoE++',
+                     'Warranty': '1 Year'
+                 },
+                 inStock: true,
+                 stockLevel: 'in'
+            ];
+
+            const productGrid = document.getElementById('product-grid');
+            const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
+            const sortSelect = document.querySelector('.sort-select');
+            const resetButton = document.querySelector('.filter-reset');
+            const priceMinInput = document.getElementById('price-min');
+            const priceMaxInput = document.getElementById('price-max');
+            const priceSlider = document.getElementById('price-slider');
+            const priceMinValue = document.getElementById('price-min-value');
+            const priceMaxValue = document.getElementById('price-max-value');
+            const compareSection = document.getElementById('compare-section');
+            const compareTable = document.getElementById('compare-table');
+            const clearComparisonBtn = document.getElementById('clear-comparison');
+            const resultsCountEl = document.getElementById('results-count');
+            const filterSummaryEl = document.getElementById('filter-summary');
+
+            // Comparison state
+            let comparedProducts = [];
+
+            // Function to render products based on filters and sort
+            function renderProducts() {
+                // Show loading state
+                showLoadingState();
+
+                // Get selected categories
+                const selectedCategories = Array.from(categoryCheckboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+
+                // Get price range
+                const minPrice = parseInt(priceMinInput.value) || 0;
+                const maxPrice = parseInt(priceMaxInput.value) || 500000;
+
+                // Get sort option
+                const sortOption = sortSelect.value;
+
+                // Filter products
+                let filtered = products.filter(p =>
+                    selectedCategories.includes(p.category) &&
+                    p.price >= minPrice &&
+                    p.price <= maxPrice
+                );
+
+                // Sort products
+                switch (sortOption) {
+                    case 'price-asc':
+                        filtered.sort((a, b) => a.price - b.price);
+                        break;
+                    case 'price-desc':
+                        filtered.sort((a, b) => b.price - a.price);
+                        break;
+                    case 'name-asc':
+                        filtered.sort((a, b) => a.name.localeCompare(b.name));
+                        break;
+                    case 'name-desc':
+                        filtered.sort((a, b) => b.name.localeCompare(a.name));
+                        break;
+                }
+
+                // Update results count
+                resultsCountEl.textContent = filtered.length.toLocaleString();
+
+                // Update filter summary
+                updateFilterSummary(selectedCategories, minPrice, maxPrice);
+
+                // Small delay to show loading state (for UX, remove if too fast)
+                setTimeout(() => {
+                    // Clear grid
+                    productGrid.innerHTML = '';
+
+                    // If no products, show message
+                    if (filtered.length === 0) {
+                        const noResult = document.createElement('p');
+                        noResult.className = 'no-results';
+                        noResult.textContent = 'No products match your selection.';
+                        productGrid.appendChild(noResult);
+                        hideLoadingState();
+                        return;
+                    }
+
+                    // Create product cards
+                    filtered.forEach(product => {
+                        const card = document.createElement('article');
+                        card.className = 'glass-light product-card';
+                        card.dataset.productId = product.id;
+                        card.innerHTML = `
+                            <div class="img-container" style="position: relative;">
+                                <img src="${product.image}" alt="${product.name}">
+                                <div class="stock-badge stock-${product.stockLevel}">${product.inStock ? 'In Stock' : 'Out of Stock'}</div>
+                            </div>
+                            <div class="card-content">
+                                <h3>${product.name}</h3>
+                                <p>${product.desc}</p>
+                                <p class="price">KES ${product.price.toLocaleString()}</p>
+
+                                <!-- Specification Accordion -->
+                                <div class="spec-accordion">
+                                    <button class="spec-toggle" aria-expanded="false">
+                                        View Specifications <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="spec-panel">
+                                        <ul class="spec-list">
+                                            ${Object.entries(product.specs).map(([key, value]) => `
+                                                <li>
+                                                    <span>${key}:</span>
+                                                    <span>${value}</span>
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="product-actions">
+                                    <button class="btn btn-sm btn-outline compare-btn" data-product-id="${product.id}">
+                                        Compare
+                                    </button>
+                                    <a href="/contact.html?product=${encodeURIComponent(product.name)}&price=${product.price}"
+                                       class="btn btn-primary btn-block">
+                                        Enquire Now
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                        productGrid.appendChild(card);
+                    });
+
+                    // Add event listeners to spec toggles
+                    document.querySelectorAll('.spec-toggle').forEach(toggle => {
+                        toggle.addEventListener('click', () => {
+                            const panel = toggle.nextElementSibling;
+                            const icon = toggle.querySelector('i');
+
+                            toggle.classList.toggle('active');
+                            panel.classList.toggle('active');
+                            icon.classList.toggle('fa-chevron-down');
+                            icon.classList.toggle('fa-chevron-up');
+
+                            toggle.setAttribute('aria-expanded', toggle.classList.contains('active'));
+                        });
+                    });
+
+                    // Add event listeners to compare buttons
+                    document.querySelectorAll('.compare-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const productId = parseInt(btn.getAttribute('data-product-id'));
+                            toggleComparison(productId);
+                        });
+                    });
+
+                    hideLoadingState();
+                }, 300); // Small delay for loading state visibility
+            }
+
+            // Show loading skeleton
+            function showLoadingState() {
+                productGrid.innerHTML = `
+                    <div class="skeleton-loader">
+                        <div class="skeleton-item">
+                            <div class="skeleton-img"></div>
+                            <div class="skeleton-content">
+                                <div class="line"></div>
+                                <div class="line short"></div>
+                                <div class="line"></div>
+                            </div>
+                        </div>
+                        <div class="skeleton-item">
+                            <div class="skeleton-img"></div>
+                            <div class="skeleton-content">
+                                <div class="line"></div>
+                                <div class="line short"></div>
+                                <div class="line"></div>
+                            </div>
+                        </div>
+                        <div class="skeleton-item">
+                            <div class="skeleton-img"></div>
+                            <div class="skeleton-content">
+                                <div class="line"></div>
+                                <div class="line short"></div>
+                                <div class="line"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Hide loading state
+            function hideLoadingState() {
+                // The loading state is replaced by actual content in setTimeout
+                // So we don't need to do anything here
+            }
+
+            // Update filter summary chips
+            function updateFilterSummary(selectedCategories, minPrice, maxPrice) {
+                let chipsHTML = '';
+
+                // Category chips
+                selectedCategories.forEach(cat => {
+                    let catName = cat.charAt(0).toUpperCase() + cat.slice(1);
+                    // Map category values to display names
+                    const categoryMap = {
+                        'cctv': 'CCTV',
+                        'switch': 'Switch Routers',
+                        'tv': 'TVs/Flat Panels',
+                        'audio': 'Audio',
+                        'it': 'IT Solutions',
+                        'trading': 'Trading & Distribution',
+                        'software': 'Software & Web Solutions',
+                        'ups': 'UPS',
+                        'smarthome': 'Smart Home',
+                        'smartcampus': 'Smart Campus'
+                    };
+                    catName = categoryMap[cat] || catName;
+                    chipsHTML += `<span class="filter-chip">${catName} <i class="fas fa-times" data-filter="category-${cat}"></i></span>`;
+                });
+
+                // Price range chip
+                if (minPrice > 0 || maxPrice < 500000) {
+                    chipsHTML += `<span class="filter-chip">KES ${minPrice.toLocaleString()} - ${maxPrice.toLocaleString()} <i class="fas fa-times" data-filter="price"></i></span>`;
+                }
+
+                filterSummaryEl.innerHTML = chipsHTML || '<span>No active filters</span>';
+
+                // Add event listeners to remove chips
+                document.querySelectorAll('.filter-chip i').forEach(icon => {
+                    icon.addEventListener('click', () => {
+                        const filterType = icon.parentElement.getAttribute('data-filter').split('-')[0];
+                        const filterValue = icon.parentElement.getAttribute('data-filter').split('-')[1];
+
+                        if (filterType === 'category') {
+                            // Uncheck the checkbox
+                            const checkbox = document.querySelector(`.category-checkbox[value="${filterValue}"]`);
+                            if (checkbox) checkbox.checked = false;
+                        } else if (filterType === 'price') {
+                            // Reset price filters
+                            priceMinInput.value = 0;
+                            priceMaxInput.value = Math.max(...products.map(p => p.price));
+                            priceSlider.value = priceMaxInput.value;
+                            priceMinValue.textContent = '0';
+                            priceMaxValue.textContent = priceMaxInput.value.toLocaleString();
+                        }
+
+                        // Re-render products
+                        renderProducts();
+                    });
+                });
+            }
+
+            // Price range slider synchronization
+            function syncPriceControls() {
+                const minVal = parseInt(priceMinInput.value) || 0;
+                const maxVal = parseInt(priceMaxInput.value) || 500000;
+
+                // Ensure min <= max
+                if (minVal > maxVal) {
+                    priceMinInput.value = maxVal;
+                    priceMaxInput.value = maxVal;
+                }
+
+                // Update slider max if needed
+                priceSlider.max = maxVal;
+                priceSlider.value = maxVal;
+
+                // Update display values
+                priceMinValue.textContent = minVal.toLocaleString();
+                priceMaxValue.textContent = maxVal.toLocaleString();
+
+                // Re-render products
+                renderProducts();
+            }
+
+            // Initialize price controls
+            priceMinInput.addEventListener('input', syncPriceControls);
+            priceMaxInput.addEventListener('input', syncPriceControls);
+            priceSlider.addEventListener('input', () => {
+                priceMaxInput.value = priceSlider.value;
+                priceMaxValue.textContent = priceSlider.value.toLocaleString();
+                renderProducts();
+            });
+
+            // Set initial max values based on actual product prices
+            const maxProductPrice = Math.max(...products.map(p => p.price));
+            priceMaxInput.value = maxProductPrice;
+            priceSlider.max = maxProductPrice;
+            priceSlider.value = maxProductPrice;
+            priceMaxValue.textContent = maxProductPrice.toLocaleString();
+
+            // Comparison functions
+            function toggleComparison(productId) {
+                const product = products.find(p => p.id === productId);
+                if (!product) return;
+
+                const index = comparedProducts.indexOf(productId);
+                if (index === -1) {
+                    // Add to comparison (max 4 products)
+                    if (comparedProducts.length < 4) {
+                        comparedProducts.push(productId);
+                        updateComparisonUI();
+                    }
+                } else {
+                    // Remove from comparison
+                    comparedProducts.splice(index, 1);
+                    updateComparisonUI();
+                }
+            }
+
+            function updateComparisonUI() {
+                if (comparedProducts.length === 0) {
+                    compareSection.style.display = 'none';
+                    return;
+                }
+
+                compareSection.style.display = 'block';
+                renderComparisonTable();
+
+                // Update compare button states
+                document.querySelectorAll('.compare-btn').forEach(btn => {
+                    const productId = parseInt(btn.getAttribute('data-product-id'));
+                    if (comparedProducts.includes(productId)) {
+                        btn.classList.add('active');
+                        btn.textContent = 'Compared';
+                    } else {
+                        btn.classList.remove('active');
+                        btn.textContent = 'Compare';
+                    }
+                });
+            }
+
+            function renderComparisonTable() {
+                if (comparedProducts.length === 0) {
+                    compareTable.innerHTML = '<p>No products selected for comparison.</p>';
+                    return;
+                }
+
+                const compareProducts = comparedProducts.map(id => products.find(p => p.id === id));
+
+                // Build table header
+                let tableHTML = `
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left; padding: 12px; border-bottom: 2px solid #ddd;">Specification</th>
+                `;
+
+                compareProducts.forEach(product => {
+                    tableHTML += `<th style="text-align: left; padding: 12px; border-bottom: 2px solid #ddd;">${product.name}</th>`;
+                });
+
+                tableHTML += `</tr></thead><tbody>`;
+
+                // Build table rows for each spec
+                const allSpecKeys = new Set();
+                compareProducts.forEach(product => {
+                    Object.keys(product.specs).forEach(key => allSpecKeys.add(key));
+                });
+
+                // Add basic specs that all products have
+                const baseSpecs = ['name', 'price', 'desc'];
+                baseSpecs.forEach(key => allSpecKeys.add(key));
+
+                allSpecKeys.forEach(key => {
+                    let label = key;
+                    if (key === 'name') label = 'Product Name';
+                    else if (key === 'price') label = 'Price';
+                    else if (key === 'desc') label = 'Description';
+
+                    tableHTML += `<tr style="border-top: 1px solid #eee;">`;
+                    tableHTML += `<td style="padding: 12px; font-weight: 600; background: #f8f9fa;">${label}</td>`;
+
+                    compareProducts.forEach(product => {
+                        let value = '';
+                        if (key === 'name') value = product.name;
+                        else if (key === 'price') value = `KES ${product.price.toLocaleString()}`;
+                        else if (key === 'desc') value = product.desc;
+                        else value = product.specs[key] || 'N/A';
+
+                        tableHTML += `<td style="padding: 12px;">${value}</td>`;
+                    });
+
+                    tableHTML += `</tr>`;
+                });
+
+                tableHTML += `</tbody></table>`;
+                compareTable.innerHTML = tableHTML;
+            }
+
+            function clearComparison() {
+                comparedProducts = [];
+                updateComparisonUI();
+            }
+
+            // Event listeners
+            categoryCheckboxes.forEach(cb => {
+                cb.addEventListener('change', renderProducts);
+            });
+            sortSelect.addEventListener('change', renderProducts);
+            resetButton.addEventListener('click', () => {
+                // Check all checkboxes
+                categoryCheckboxes.forEach(cb => cb.checked = true);
+                // Reset price filters
+                priceMinInput.value = 0;
+                priceMaxInput.value = Math.max(...products.map(p => p.price));
+                priceSlider.value = priceMaxInput.value;
+                priceMinValue.textContent = '0';
+                priceMaxValue.textContent = priceMaxInput.value.toLocaleString();
+                // Reset sort to default
+                sortSelect.value = 'price-asc';
+                renderProducts();
+            });
+            clearComparisonBtn.addEventListener('click', clearComparison);
+
+            // Initial render
+            renderProducts();
+        });
+    </script>
+ </body>
+</html>
