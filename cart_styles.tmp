@@ -1,0 +1,99 @@
+        .cart-container { position: relative; margin-left: 15px; }
+        .cart-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .cart-btn:hover { background: #e30613; border-color: #e30613; }
+        .cart-count {
+            position: absolute; top: -5px; right: -5px;
+            background: #e30613; color: white;
+            font-size: 11px; width: 18px; height: 18px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: bold; border: 2px solid #1a1a1a;
+        }
+        .cart-modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px);
+            z-index: 2000; display: none; justify-content: flex-end;
+        }
+        .cart-modal {
+            width: 100%; max-width: 400px; height: 100%;
+            background: #fff; box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+            display: flex; flex-direction: column; transition: transform 0.3s ease;
+        }
+        .cart-modal-header {
+            padding: 20px; background: #1a1a1a; color: white;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .cart-modal-header button { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        .cart-items-list { flex: 1; overflow-y: auto; padding: 20px; }
+        .cart-item { display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid #eee; align-items: center; }
+        .cart-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; }
+        .cart-item-info { flex: 1; }
+        .cart-item-info h4 { margin: 0 0 5px 0; font-size: 14px; }
+        .cart-item-price { font-weight: 600; color: #e30613; font-size: 14px; }
+        .cart-item-qty { display: flex; align-items: center; gap: 10px; margin-top: 5px; }
+        .qty-btn { width: 20px; height: 20px; border: 1px solid #ddd; background: #f9f9f9; cursor: pointer; border-radius: 3px; }
+        .cart-footer { padding: 20px; background: #f8f9fa; border-top: 1px solid #ddd; }
+        .cart-total-row { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
+        .checkout-btn { width: 100%; padding: 15px; background: #e30613; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+        .checkout-btn:hover { opacity: 0.9; }
+        .filter-bar { display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; border-radius: 12px; margin-bottom: 30px; align-items: flex-end; }
+        .filter-group { display: flex; flex-direction: column; gap: 8px; }
+        .filter-label { font-weight: 600; font-size: 0.9rem; color: #444; }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
+        .checkbox-group label { font-size: 0.85rem; display: flex; align-items: center; gap: 5px; cursor: pointer; }
+        .price-range { display: flex; gap: 10px; align-items: center; }
+        .price-range input { width: 80px; padding: 5px; border: 1px solid #ddd; border-radius: 4px; }
+        .sort-select { padding: 8px; border: 1px solid #ddd; border-radius: 4px; background: white; }
+        .results-summary { margin-bottom: 15px; font-weight: 500; color: #666; }
+        .filter-summary { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .filter-chip { background: #eee; padding: 4px 12px; border-radius: 16px; font-size: 0.8rem; display: flex; align-items: center; gap: 8px; }
+        .filter-chip i { cursor: pointer; color: #999; transition: color 0.2s; }
+        .filter-chip i:hover { color: #e30613; }
+        .product-card { transition: transform 0.3s ease; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card .btn { width: 100%; margin-top: 10px; }
+ </head>
+ <body>
+    <div class="blob blob-red-1" aria-hidden="true"></div>
+    <div class="blob blob-black-1" aria-hidden="true"></div>
+    <div class="blob blob-red-2" aria-hidden="true"></div>
+
+    <div class="topbar">
+        <div class="topbar-inner container">
+            <a class="topbar-text" href="#contacts"><i class="fa-solid fa-location-dot"></i><span><small>Address</small><strong>The Real Park, 3rd Floor, Along Bandari Road, South B</strong></span></a>
+            <div class="topbar-text"><i class="fa-regular fa-clock"></i><span><small>Opening Time</small><strong>Mon - Sat: 9am - 5pm</strong></span></div>
+            <a class="topbar-text" href="mailto:info@3csbusiness.co.ke"><i class="fa-regular fa-envelope"></i><span><small>Get In Touch</small><strong>info@3csbusiness.co.ke</strong></span></a>
+        </div>
+    </div>
+
+        <header class="header">
+        <nav class="navbar glass-dark">
+            <a class="logo" href="index.html">
+                <img src="images/logo.jpg" alt="3CS Business Solutions Logo">
+            </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT US <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Who We Are</a></li>
+                        <li><a href="about.html">Qualifications</a></li>
+                        <li><a href="about.html">CSR</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
