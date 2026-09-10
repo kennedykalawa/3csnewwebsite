@@ -89,11 +89,16 @@
         </div>
     </div>
 
-    <header class="header">
+        <header class="header">
         <nav class="navbar glass-dark">
-            <a class="logo" href="index.html"><img src="images/logo.jpg" alt="3CS Business Solutions Logo"></a>
+            <a class="logo" href="index.html">
+                <img src="images/logo.jpg" alt="3CS Business Solutions Logo">
+            </a>
             <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
-            <label for="nav-toggle" class="nav-toggle-label"><i class="fa-solid fa-bars"></i></label>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+
             <ul class="nav-menu">
                 <li><a href="index.html">HOME</a></li>
                 <li class="dropdown">
@@ -114,7 +119,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="products.html" class="active">OUR SHOP <i class="fa-solid fa-chevron-down"></i></a>
+                    <a href="products.html">OUR SHOP <i class="fa-solid fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="products.html">CCTV</a></li>
                         <li><a href="products.html">Switch Routers</a></li>
@@ -132,8 +137,15 @@
                 </li>
                 <li><a href="contact.html">CONTACTS</a></li>
             </ul>
+
             <div class="nav-contacts">
-                <a href="tel:+254701683322" class="call-btn"><i class="fa-solid fa-phone"></i><div><small>Call Us On</small><span>+254 113 970 273</span></div></a>
+                <a href="tel:+254701683322" class="call-btn">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <small>Call Us On</small>
+                        <span>+254 113 970 273</span>
+                    </div>
+                </a>
                 <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <div class="cart-container">
                     <button class="cart-btn" id="cart-toggle-btn">
@@ -407,5 +419,6 @@
             updateCartUI();
         });
     </script>
- </body>
+ 
+</body>
 </html>
